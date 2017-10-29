@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.ahmed.kotlin_mvp_rx_di_retrofit_android_sample.MainActivity">
+    tools:context="com.ahmed.kotlin_mvp_rx_di_retrofit_android_sample.ui.MainActivity">
 
     <TextView
         android:layout_width="wrap_content"
