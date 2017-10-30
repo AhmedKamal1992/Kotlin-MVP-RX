@@ -9,7 +9,9 @@ import javax.inject.Singleton
  * Created by Ahmed Kamal on 29-10-2017.
  */
 @Singleton
-@Component(modules = arrayOf(Bindings::class , NetworkModule::class))
+@Component(modules = arrayOf(Bindings::class, NetworkModule::class))
 interface AppComponent {
-    fun activityComponent():ActivityComponent
+
+    fun activityComponent(): ActivityComponent
+
 }

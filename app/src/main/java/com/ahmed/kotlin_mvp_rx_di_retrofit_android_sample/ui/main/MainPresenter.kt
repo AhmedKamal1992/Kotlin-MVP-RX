@@ -1,16 +1,14 @@
 package com.ahmed.kotlin_mvp_rx_di_retrofit_android_sample.ui.main
 
-import com.ahmed.kotlin_mvp_rx_di_retrofit_android_sample.data.model.Joke
+import com.ahmed.kotlin_mvp_rx_di_retrofit_android_sample.data.model.Article
+import com.ahmed.kotlin_mvp_rx_di_retrofit_android_sample.data.model.NewsModel
 import com.ahmed.kotlin_mvp_rx_di_retrofit_android_sample.injection.scope.PerActivity
 import com.ahmed.kotlin_mvp_rx_di_retrofit_android_sample.ui.base.BasePresenter
+import com.ahmed.kotlin_mvp_rx_di_retrofit_android_sample.ui.base.listeners.RecyclerItemListener
 import com.ahmed.kotlin_mvp_rx_di_retrofit_android_sample.usecase.DataManager
-import io.reactivex.Observable
-import io.reactivex.Scheduler
 import io.reactivex.android.schedulers.AndroidSchedulers.mainThread
-import io.reactivex.internal.schedulers.IoScheduler
 import io.reactivex.observers.DisposableObserver
 import io.reactivex.schedulers.Schedulers.io
-import rx.Observer
 import javax.inject.Inject
 
 /**
@@ -20,22 +18,23 @@ import javax.inject.Inject
 class MainPresenter @Inject constructor(val interactor: DataManager) :
         BasePresenter<MainContract.MainView>() , MainContract.MainPresenter
 {
-    override fun getJokes()
+
+    override fun getNews()
     {
         disposable.add(
-                interactor.getRandomJokes(100)
+                interactor.getNews()
                         .subscribeOn(io())
                         .observeOn(mainThread())
-                        .subscribeWith(object : DisposableObserver<List<Joke>>()
+                        .subscribeWith(object : DisposableObserver<NewsModel>()
                         {
-                            override fun onNext(t: List<Joke>)
+                            override fun onNext(newsModel: NewsModel)
                             {
-                                if(view != null)view?.onFetchJokesSuccess(t)
+                                if(view != null)view?.onFetchNewsSuccess(newsModel)
                             }
 
                             override fun onError(e: Throwable)
                             {
-                                view?.onFetchJokesError(e)
+                                view?.onFetchNewsError(e)
                             }
 
                             override fun onComplete() {

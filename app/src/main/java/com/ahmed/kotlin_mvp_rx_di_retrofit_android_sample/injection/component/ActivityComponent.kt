@@ -1,7 +1,7 @@
 package com.ahmed.kotlin_mvp_rx_di_retrofit_android_sample.injection.component
 
 import com.ahmed.kotlin_mvp_rx_di_retrofit_android_sample.injection.scope.PerActivity
-import com.ahmed.kotlin_mvp_rx_di_retrofit_android_sample.ui.MainActivity
+import com.ahmed.kotlin_mvp_rx_di_retrofit_android_sample.ui.main.MainActivity
 import dagger.Subcomponent
 
 /**

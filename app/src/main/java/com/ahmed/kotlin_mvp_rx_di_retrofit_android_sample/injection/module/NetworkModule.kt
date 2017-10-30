@@ -1,6 +1,7 @@
 package com.ahmed.kotlin_mvp_rx_di_retrofit_android_sample.injection.module
 
-import com.ahmed.kotlin_mvp_rx_di_retrofit_android_sample.data.remote.JokesService
+import com.ahmed.kotlin_mvp_rx_di_retrofit_android_sample.data.remote.NewsService
+import com.ahmed.kotlin_mvp_rx_di_retrofit_android_sample.utilities.Constants.Companion.BASE_URL
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import dagger.Module
@@ -16,10 +17,6 @@ import javax.inject.Singleton
  */
 @Module
 open class NetworkModule {
-    companion object {
-        const val API_URL = "http://api.icndb.com/"
-    }
-
 
     @Provides
     @Singleton
@@ -35,7 +32,7 @@ open class NetworkModule {
     {
         return Retrofit.Builder()
                 .client(okHttpClient)
-                .baseUrl(API_URL)
+                .baseUrl(BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create(gson))
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .build()
@@ -43,5 +40,5 @@ open class NetworkModule {
 
     @Provides
     @Singleton
-    fun providesJokesService(retrofit: Retrofit):JokesService = retrofit.create(JokesService :: class.java)
+    fun providesJokesService(retrofit: Retrofit):NewsService = retrofit.create(NewsService :: class.java)
 }

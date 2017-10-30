@@ -9,21 +9,27 @@ import com.ahmed.kotlin_mvp_rx_di_retrofit_android_sample.utilities.extensions.g
 /**
  * Created by Ahmed Kamal on 29-10-2017.
  */
-abstract class BaseActivity : AppCompatActivity()
-{
-    protected var activityComponent : ActivityComponent? = null
+abstract class BaseActivity : AppCompatActivity() {
 
-    override fun onCreate(savedInstanceState: Bundle?, persistentState: PersistableBundle?) {
-        super.onCreate(savedInstanceState, persistentState)
-        setContentView(getLayoutRestId())
+    protected var activityComponent: ActivityComponent? = null
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(getLayoutResId())
         activityComponent = getAppComponent().activityComponent()
+        initializeDagger()
+        initializeUi()
+        initializePresenter()
     }
 
-    override fun onDestroy()
-    {
+    override fun onDestroy() {
         activityComponent = null
         super.onDestroy()
     }
 
-    abstract fun getLayoutRestId(): Int
+    protected abstract fun getLayoutResId(): Int
+    protected abstract fun initializePresenter()
+    protected abstract fun initializeUi()
+    protected abstract fun initializeDagger()
+
 }

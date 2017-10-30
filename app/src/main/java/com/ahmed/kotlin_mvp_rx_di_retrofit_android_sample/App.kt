@@ -17,8 +17,4 @@ class App : Application()
         appComponent = DaggerAppComponent.builder().build()
     }
 
-    fun getAppContext(): Context
-    {
-        return this
-    }
 }
