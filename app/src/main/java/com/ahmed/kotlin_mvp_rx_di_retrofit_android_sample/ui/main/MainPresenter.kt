@@ -18,7 +18,6 @@ import javax.inject.Inject
 class MainPresenter @Inject constructor(val interactor: DataManager) :
         BasePresenter<MainContract.MainView>() , MainContract.MainPresenter
 {
-
     override fun getNews()
     {
         disposable.add(

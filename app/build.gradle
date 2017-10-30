@@ -28,6 +28,9 @@ android {
 
 dependencies {
 
+    implementation 'com.android.support.constraint:constraint-layout:1.0.2'
+    compile kotlinExtensionDependecy.kotlin
+
     compile supportDependencies.design
     compile supportDependencies.appcompat
     compile supportDependencies.cardview
@@ -38,8 +41,8 @@ dependencies {
     compile squareDependencies.converter_gson
     compile squareDependencies.glide
 
-    compile  injectionDependencies.dagger2
-    kapt     injectionDependencies.kotlinExtension
+    compile injectionDependencies.dagger2
+    kapt injectionDependencies.kotlinExtension
     provided injectionDependencies.kotlinProvider
 
     compile reactiveDependencies.rxandroid

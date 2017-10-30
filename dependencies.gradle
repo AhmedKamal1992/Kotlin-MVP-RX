@@ -1,5 +1,13 @@
 ext {
 
+  kotlinExtensionVersion = '1.1.51'
+
+  kotlinExtensionDependecy = [
+
+          kotlin : "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlinExtensionVersion"
+
+  ]
+
   supportLibrayVersion = '26.1.0'
 
   supportDependencies = [

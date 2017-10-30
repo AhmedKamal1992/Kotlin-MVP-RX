@@ -21,5 +21,4 @@ interface MainContract {
     {
         fun getNews()
     }
-
 }

@@ -29,6 +29,6 @@ abstract class BaseViewHolder<T : Parcelable> : RelativeLayout {
 
     protected abstract fun layoutResId(): Int
 
-    abstract fun bind(item: T, position: Int)
+    abstract fun bind(item: T, position: Int, viewHolder: BaseAdapter<T>.ViewHolder)
 
 }

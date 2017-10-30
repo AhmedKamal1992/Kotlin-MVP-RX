@@ -7,6 +7,8 @@ import com.ahmed.kotlin_mvp_rx_di_retrofit_android_sample.injection.scope.PerAct
 import com.ahmed.kotlin_mvp_rx_di_retrofit_android_sample.ui.base.listeners.RecyclerItemListener
 import com.ahmed.kotlin_mvp_rx_di_retrofit_android_sample.ui.base.recyclerview.BaseAdapter
 import com.ahmed.kotlin_mvp_rx_di_retrofit_android_sample.ui.base.recyclerview.BaseViewHolder
+import com.ahmed.kotlin_mvp_rx_di_retrofit_android_sample.ui.main.MainContract
+import com.ahmed.kotlin_mvp_rx_di_retrofit_android_sample.ui.main.MainPresenter
 import javax.inject.Inject
 
 /**
@@ -14,6 +16,7 @@ import javax.inject.Inject
  */
 @PerActivity
 class MainAdapter @Inject constructor() : BaseAdapter<Article>() {
+
     override fun getListItemView(context: Context): BaseViewHolder<Article> {
         return NewsViewHolder(context)
     }
