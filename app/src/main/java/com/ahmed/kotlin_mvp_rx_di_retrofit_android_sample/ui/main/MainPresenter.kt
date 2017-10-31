@@ -28,12 +28,12 @@ class MainPresenter @Inject constructor(val interactor: DataManager) :
                         {
                             override fun onNext(newsModel: NewsModel)
                             {
-                                if(view != null)view?.onFetchNewsSuccess(newsModel)
+                                if(view != null) view?.get()?.onFetchNewsSuccess(newsModel)
                             }
 
                             override fun onError(e: Throwable)
                             {
-                                view?.onFetchNewsError(e)
+                                view?.get()?.onFetchNewsError(e)
                             }
 
                             override fun onComplete() {
