@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/KotlinMVPRXDIRetrofitAndroidSample.iml" filepath="$PROJECT_DIR$/KotlinMVPRXDIRetrofitAndroidSample.iml" />
+      <module fileurl="file://D:\Kotlin Projects\kotlin-mvp-rx-di-retrofit-android-sample\KotlinMVPRXDIRetrofitAndroidSample.iml" filepath="D:\Kotlin Projects\kotlin-mvp-rx-di-retrofit-android-sample\KotlinMVPRXDIRetrofitAndroidSample.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/kotlin-mvp-rx-di-retrofit-android-sample.iml" filepath="$PROJECT_DIR$/kotlin-mvp-rx-di-retrofit-android-sample.iml" />
       <module fileurl="file://C:\Android Sample Projects\KotlinMVPRXDIRetrofitAndroidSample\kotlin-mvp-rx-di-retrofit-android-sample.iml" filepath="C:\Android Sample Projects\KotlinMVPRXDIRetrofitAndroidSample\kotlin-mvp-rx-di-retrofit-android-sample.iml" />
     </modules>
   </component>

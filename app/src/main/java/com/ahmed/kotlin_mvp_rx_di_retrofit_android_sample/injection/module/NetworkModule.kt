@@ -40,5 +40,5 @@ open class NetworkModule {
 
     @Provides
     @Singleton
-    fun providesJokesService(retrofit: Retrofit):NewsService = retrofit.create(NewsService :: class.java)
+    fun provideNewsService(retrofit: Retrofit):NewsService = retrofit.create(NewsService :: class.java)
 }

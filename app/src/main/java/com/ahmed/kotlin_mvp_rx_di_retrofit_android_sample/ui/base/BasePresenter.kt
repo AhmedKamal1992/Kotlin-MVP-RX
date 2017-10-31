@@ -1,6 +1,7 @@
 package com.ahmed.kotlin_mvp_rx_di_retrofit_android_sample.ui.base
 
 import io.reactivex.disposables.CompositeDisposable
+import java.lang.ref.WeakReference
 
 /**
  * Created by Ahmed Kamal on 29-10-2017.
@@ -8,23 +9,25 @@ import io.reactivex.disposables.CompositeDisposable
 open class BasePresenter<T : MvpView>
 {
     protected var disposable = CompositeDisposable()
-    protected var view: T? = null
+    protected var view: WeakReference<T>? = null
 
-    fun bind(view : T)
+    fun attachView(view : T)
     {
-        this.view = view
+        this.view = WeakReference(view)
     }
 
-    fun unbind()
+    fun detechView()
     {
         this.view = null
+        disposable.clear()
+        disposable.dispose()
     }
 
     fun destroy()
     {
         disposable.clear()
         disposable.dispose()
-        unbind()
+        detechView()
     }
 
 }

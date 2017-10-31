@@ -18,7 +18,7 @@ class MainActivity : BaseActivity() , MainContract.MainView
     @Inject lateinit var mainAdapter: MainAdapter
 
     override fun initializePresenter() {
-        presenter.bind(this)
+        presenter.attachView(this)
         presenter.getNews()
     }
 
