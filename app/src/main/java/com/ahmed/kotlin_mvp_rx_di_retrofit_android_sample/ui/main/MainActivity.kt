@@ -50,6 +50,14 @@ class MainActivity : BaseActivity() , MainContract.MainView
         pb_loading.visibility = View.GONE
     }
 
+    override fun showLoading() {
+        pb_loading.visibility = View.VISIBLE
+    }
+
+    override fun hideLoading() {
+        pb_loading.visibility = View.GONE
+    }
+
     override fun navigateToDetailsScreen(article: Article) {
 
     }

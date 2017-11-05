@@ -1,13 +1,12 @@
 package com.ahmed.kotlin_mvp_rx_di_retrofit_android_sample.ui.main
 
-import com.ahmed.kotlin_mvp_rx_di_retrofit_android_sample.data.model.Article
 import com.ahmed.kotlin_mvp_rx_di_retrofit_android_sample.data.model.NewsModel
 import com.ahmed.kotlin_mvp_rx_di_retrofit_android_sample.injection.scope.PerActivity
 import com.ahmed.kotlin_mvp_rx_di_retrofit_android_sample.ui.base.BasePresenter
-import com.ahmed.kotlin_mvp_rx_di_retrofit_android_sample.ui.base.listeners.RecyclerItemListener
 import com.ahmed.kotlin_mvp_rx_di_retrofit_android_sample.usecase.DataManager
 import io.reactivex.android.schedulers.AndroidSchedulers.mainThread
 import io.reactivex.observers.DisposableObserver
+import io.reactivex.observers.DisposableSingleObserver
 import io.reactivex.schedulers.Schedulers.io
 import javax.inject.Inject
 
@@ -20,28 +19,27 @@ class MainPresenter @Inject constructor(val interactor: DataManager) :
 {
     override fun getNews()
     {
-        disposable.add(
-                interactor.getNews()
-                        .subscribeOn(io())
-                        .observeOn(mainThread())
-                        .subscribeWith(object : DisposableObserver<NewsModel>()
-                        {
-                            override fun onNext(newsModel: NewsModel)
-                            {
-                                if(view != null) view?.get()?.onFetchNewsSuccess(newsModel)
-                            }
+       checkViewAttached()
+       view?.get()?.showLoading()
+       addDisposable(interactor.getNews()
+               .subscribeOn(io())
+               .observeOn(mainThread())
+               .subscribeWith(object : DisposableSingleObserver<NewsModel>()
+               {
+                   override fun onSuccess(newsModel: NewsModel) {
+                       view?.get()?.hideLoading()
+                       if(view != null) view?.get()?.onFetchNewsSuccess(newsModel)
+                   }
 
-                            override fun onError(e: Throwable)
-                            {
-                                view?.get()?.onFetchNewsError(e)
-                            }
+                   override fun onError(e: Throwable)
+                   {
+                       view?.get()?.hideLoading()
+                       view?.get()?.onFetchNewsError(e)
+                   }
 
-                            override fun onComplete() {
-                            }
-
-
-                        })
-        )
+               }
+           )
+       )
     }
 
 }

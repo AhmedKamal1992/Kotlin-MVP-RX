@@ -25,9 +25,6 @@ class NewsViewHolder(context: Context) : BaseViewHolder<Article>(context)
         tv_caption.text = item.description
         Glide.with(context).load(item.urlToImage).into(iv_news_item_image)
 
-        viewHolder.itemView.setOnClickListener(
-                {
-                    context.startActivity(Intent(context , DetailsActivity :: class.java).putExtra(NEWS_ITEM_KEY, item))
-                })
+        viewHolder.itemView.setOnClickListener({ context.startActivity(Intent(context , DetailsActivity :: class.java).putExtra(NEWS_ITEM_KEY, item)) })
     }
 }

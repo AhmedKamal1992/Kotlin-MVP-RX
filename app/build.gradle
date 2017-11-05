@@ -28,30 +28,38 @@ android {
 
 dependencies {
 
-    implementation 'com.android.support.constraint:constraint-layout:1.0.2'
+    //Kotlin Extension
     compile kotlinExtensionDependecy.kotlin
 
+    //Android Support
     compile supportDependencies.design
     compile supportDependencies.appcompat
     compile supportDependencies.cardview
     compile supportDependencies.recyclerview
+    implementation supportDependencies.constraintLayout
 
+    //Retrofit
     compile squareDependencies.retrofit
     compile squareDependencies.adapter_rx_java
     compile squareDependencies.converter_gson
     compile squareDependencies.glide
 
+    //Dagger Dependency Injector
     compile injectionDependencies.dagger2
     kapt injectionDependencies.kotlinExtension
     provided injectionDependencies.kotlinProvider
 
+    //RxJava / RxAndroid
     compile reactiveDependencies.rxandroid
     compile reactiveDependencies.rxjava
 
+    //Testing Libraries
     testCompile testingDependencies.junit
     testCompile testingDependencies.mockito
     testCompile testingDependencies.robolectric
-
+    testCompile testingDependencies.toothpickTesting
+    compile testingDependencies.toothpickRuntime
+    annotationProcessor testingDependencies.toothpickCompiler
 }
 repositories {
     mavenCentral()

@@ -1,5 +1,7 @@
 package com.ahmed.kotlin_mvp_rx_di_retrofit_android_sample.injection.module
 
+import android.content.Context
+import com.ahmed.kotlin_mvp_rx_di_retrofit_android_sample.App
 import com.ahmed.kotlin_mvp_rx_di_retrofit_android_sample.data.remote.NewsService
 import com.ahmed.kotlin_mvp_rx_di_retrofit_android_sample.utilities.Constants.Companion.BASE_URL
 import com.google.gson.Gson
@@ -17,6 +19,11 @@ import javax.inject.Singleton
  */
 @Module
 open class NetworkModule {
+
+
+    @Provides
+    @Singleton
+    fun provideNewsService(retrofit: Retrofit):NewsService = retrofit.create(NewsService :: class.java)
 
     @Provides
     @Singleton
@@ -37,8 +44,4 @@ open class NetworkModule {
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .build()
     }
-
-    @Provides
-    @Singleton
-    fun provideNewsService(retrofit: Retrofit):NewsService = retrofit.create(NewsService :: class.java)
 }

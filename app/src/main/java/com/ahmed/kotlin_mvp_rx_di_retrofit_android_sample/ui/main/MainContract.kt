@@ -14,6 +14,8 @@ interface MainContract {
     {
         fun onFetchNewsSuccess(newsModel: NewsModel)
         fun onFetchNewsError(error: Throwable)
+        fun showLoading()
+        fun hideLoading()
         fun navigateToDetailsScreen(article: Article)
     }
 
